@@ -14,6 +14,17 @@ router.get('/', (req, res) => {
     })
 })
 
+router.get('/data', (req, res) => {
+    conexion.query('SELECT * FROM users', (err, results) => {
+        if(err){
+            throw err
+        }else{ /* Aca con la otra forma se usa res.send en vez de render y con el JSON.stringify */
+            data = JSON.stringify(results)
+            res.send(data)
+        }
+    })
+})
+
 // Ruta para CREAR registros
 router.get('/create', (req, res) => {
     res.render('create')
@@ -45,6 +56,7 @@ router.get('/delete/:id', (req, res) => {
 
 // crud METHODS
 const crud = require("./controllers/crud")
+const { json } = require('express/lib/response')
 router.post('/save', crud.save)
 router.post('/update', crud.update)
 
