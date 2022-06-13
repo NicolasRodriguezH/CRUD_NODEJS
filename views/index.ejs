@@ -43,7 +43,7 @@
     <div class="container">
         <a href="/create" class="btn btn-outline-primary mt-4"><i class="fa-solid fa-location-arrow"></i></a>
         
-        <table id="users" class="table table-bordered table-striped text-center mt-4">
+      <table id="users" class="table table-bordered table-striped text-center mt-4">
         <thead>
             <tr class="bg-primary text-white">
                 <th scope="col">ID</th>
@@ -52,8 +52,9 @@
                 <th scope="col">ACCIONES</th>
             </tr>
         </thead>
+        
         <tbody> <!-- forEach con view engine EJS para mostrar registros de ddbb -->
-            <% results.forEach((user) => { %>
+          <% results.forEach((user) => { %>
             <tr>
                 <td><%=user.id%></td>
                 <td><%=user.user%></td>
@@ -66,8 +67,8 @@
                   </td>
                 </tr>
                 <% }) %>
-              </tbody>
-            </table>
+        </tbody>
+      </table>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
